@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-export default function Joke({ setup, punchline }) {
+export default function Joke({ setup, punchline, onClick }) {
   return (
     <div>
-      <SingleJoke>
+      <SingleJoke onClick={onClick}>
         <p>{setup}</p>
         <p>{punchline}</p>
       </SingleJoke>
