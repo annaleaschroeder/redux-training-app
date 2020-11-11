@@ -1,10 +1,15 @@
 import { combineReducers } from "redux";
 import store from "./store";
 
-function jokes(state = [], action) {
+function jokes(
+  state = {
+    jokes: [{ setup: "initial setup", punchline: "no punchline yet" }],
+  },
+  action
+) {
   switch (action.type) {
     case "jokes/loadJokes":
-      return action.jokes;
+      return { ...state, jokes: action.jokes };
     default:
       return state;
   }
@@ -38,18 +43,4 @@ export function buildRemoveFromLikes(joke) {
   };
 }
 
-export default combineReducers({ jokes, likes });
-
-// export default function jokeReducer(
-//   state = {
-//     jokes: [{ setup: "initial setup", punchline: "no punchline yet" }],
-//   },
-//   action
-// ) {
-//   switch (action.type) {
-//     case "jokes/loadJokes":
-//       return { ...state, jokes: action.jokes };
-//     default:
-//       return state;
-//   }
-// }
+export default combineReducers({ jokes: jokes, likes: likes });

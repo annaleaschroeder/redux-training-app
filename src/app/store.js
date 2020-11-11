@@ -1,7 +1,7 @@
 import { createStore } from "redux";
-import combineReducers from "./reducer";
+import rootReducer from "./reducer";
 
-const store = createStore(combineReducers);
+const store = createStore(rootReducer);
 
 fetch("https://official-joke-api.appspot.com/jokes/ten")
   .then((res) => res.json())
