@@ -16,8 +16,11 @@ function likes(state = [], action) {
       if (state.findIndex((joke) => joke === action.joke) >= 0) {
         return state;
       }
+      // prüft, ob das Item schon in der Liste ist. Wenn ja, braucht nichts weiter zu passieren
 
       return [...state, action.joke];
+
+    //wenn das Iten noch nicht in der Liste ist, wird es hinzu gefügt
 
     case "likes/remove":
       return state.filter((joke) => joke !== action.joke);
