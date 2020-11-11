@@ -35,8 +35,8 @@ export const ConnectedList = connect(mapStateToProps)(JokeList);
 function mapLikesStateToProps(state) {
   return {
     likes: state.likes,
-    type: "favorites",
+    type: "likes",
   };
 }
 
-export const ConnectedLikeList = connect(mapLikesStateToProps);
+export const ConnectedLikeList = connect(mapLikesStateToProps)(JokeList);
