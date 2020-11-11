@@ -7,7 +7,7 @@ export default function JokeList({ jokes, type }) {
   return (
     <div>
       <ul>
-        {jokes.map(({ joke }, index) => (
+        {jokes.map((joke, index) => (
           <Joke
             key={index}
             joke={joke}
@@ -29,12 +29,14 @@ function mapStateToProps(state) {
     type: "default",
   };
 }
+//default: muss einen Wert gesetzt haben, unspezifisch. Dient nur der Unterscheidung, darf nicht undefined sein
+// erzeugt objekt, keys werden als properties mit übergeben
 
 export const ConnectedList = connect(mapStateToProps)(JokeList);
 
 function mapLikesStateToProps(state) {
   return {
-    likes: state.likes,
+    jokes: state.likes,
     type: "likes",
   };
 }

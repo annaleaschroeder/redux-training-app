@@ -4,7 +4,8 @@ import store from "./store";
 function jokes(state = [], action) {
   switch (action.type) {
     case "jokes/loadJokes":
-      return { ...state, jokes: action.jokes };
+      return action.jokes;
+    //array wird einfach nur ersetzt, deshalb kann hier auf das spreaden verzichtet werden
     default:
       return state;
   }
@@ -24,6 +25,8 @@ function likes(state = [], action) {
 
     case "likes/remove":
       return state.filter((joke) => joke !== action.joke);
+
+    //filter erzeugt bereits ein neues array. --> der Joke, der raus soll, wird raus gefiltert.
     default:
       return state;
   }

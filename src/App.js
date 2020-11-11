@@ -8,6 +8,7 @@ function App() {
     <div>
       <Provider store={store}>
         <ConnectedList />
+        <br></br>
         <ConnectedLikeList />
       </Provider>
     </div>
